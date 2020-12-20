@@ -14,6 +14,7 @@
                 <th scope="col">E-mail</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
+                <th scope="col">Role</th>
                 <th scope="col">Actions</th> 
             </tr>
         </thead>
@@ -24,6 +25,11 @@
                 <td> {{ $user->email }} </td>
                 <td> {{ $user->first_name }} </td>
                 <td> {{ $user->last_name }} </td>
+                <td> 
+                @foreach ($user->roles as $role) 
+                    {{ $role->name }} <br/>
+                @endforeach
+                </td>
                 <td> 
                     <a class="btn btn-outline-primary" href="{{ route('users.show',['user' => $user->id] ) }}"> Details </a>
                     <a class="btn btn-outline-primary" href="{{ route('users.edit',['user' => $user->id] ) }}"> Edit </a>

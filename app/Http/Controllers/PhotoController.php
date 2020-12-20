@@ -16,7 +16,8 @@ class PhotoController extends Controller
     {
         //
         
-        $photos = Photo::all();
+        $photos = Photo::with(['user','tags'])->paginate();
+        
         return view('photos.index',compact('photos'));
     }
 
@@ -49,8 +50,12 @@ class PhotoController extends Controller
      */
     public function show($id)
     {
-        $photo = Photo::findOrFail($id);
-        return view("photos.show", compact('photo'));
+        $photo = Photo::with(['user'])->findOrFail($id);
+        $user =  $photo->user;
+        
+        
+        
+        return view("photos.show", compact('photo','user'));
     }
 
     /**

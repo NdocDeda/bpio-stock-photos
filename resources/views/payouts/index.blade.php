@@ -26,7 +26,8 @@
                 <td> {{ $payout->end_at }} </td>
                 <td> {{ $payout->total }} </td>
                 <td> {{ $payout->pad_at }} </td>
-                <td> {{ $payout->user_id }} </td>
+                <td> {{ $payout->user->first_name }} {{ $payout->user->last_name }} </td>
+                
                 <td> 
                     <a class="btn btn-outline-primary" href="{{ route('payouts.show',['payout' => $payout->id] ) }}"> Details </a>
                     <a class="btn btn-outline-primary" href="{{ route('payouts.edit',['payout' => $payout->id] ) }}"> Edit </a>

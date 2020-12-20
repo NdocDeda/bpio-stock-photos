@@ -14,4 +14,13 @@ class Tag extends Model
      
         
     ];
+
+    public function users() {
+    return $this->belongsToMany(
+        Photos::class,
+        'photo_tag',
+        'photo_id',
+        'tag_id');
+    
+    }
 }

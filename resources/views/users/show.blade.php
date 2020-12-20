@@ -10,6 +10,11 @@
         <li>First name: {{ $user->first_name }} </li>
         <li>Last name: {{ $user->last_name }} </li>
         <li>E-mail: {{ $user->email }} </li>
+        <li> Roles: 
+        @foreach ($user->roles as $role) 
+                    {{ $role->name }} |
+                @endforeach
+        </li>
     </ul>
 
     <a href="{{ url()->previous() }}" class="btn btn-outline-primary"> Back </a>
