@@ -47,8 +47,9 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        $single = Tag::findOrFail($id);
-        dd($single); 
+        $tag = Tag::findOrFail($id);
+        return view('tags.show',compact('tag'));
+        
     }
 
     /**

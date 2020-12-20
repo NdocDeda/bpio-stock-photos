@@ -25,8 +25,8 @@
                 <td> {{ $user->first_name }} </td>
                 <td> {{ $user->last_name }} </td>
                 <td> 
-                    <a class="btn btn-outline-primary" href="{{ route('photos.show',['photo' => $photo->id] ) }}"> Details </a>
-                    <a class="btn btn-outline-primary" href="{{ route('photos.edit',['photo' => $photo->id] ) }}"> Edit </a>
+                    <a class="btn btn-outline-primary" href="{{ route('users.show',['user' => $user->id] ) }}"> Details </a>
+                    <a class="btn btn-outline-primary" href="{{ route('users.edit',['user' => $user->id] ) }}"> Edit </a>
                 </td>
             </tr>
         @endforeach

@@ -27,7 +27,7 @@
                 <td> {{ $photo->server_path }} </td>
                 <td> {{ $photo->v_resolution }} </td>
                 <td> {{ $photo->h_resolution }} </td>
-                <td> {{ $photo->iser_id }} </td>
+                <td> {{ $photo->user_id }} </td>
                 <td> 
                     <a class="btn btn-outline-primary" href="{{ route('photos.show',['photo' => $photo->id] ) }}"> Details </a>
                     <a class="btn btn-outline-primary" href="{{ route('photos.edit',['photo' => $photo->id] ) }}"> Edit </a>

@@ -50,8 +50,8 @@ class PayoutController extends Controller
     public function show($id)
     {
         //
-        $single = Payout::findOrFail($id);
-        dd($single);
+        $payout = Payout::findOrFail($id);
+        return view('payouts.show',compact('payout'));
     }
 
     /**

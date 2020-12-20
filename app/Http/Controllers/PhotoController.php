@@ -49,8 +49,8 @@ class PhotoController extends Controller
      */
     public function show($id)
     {
-        $single = Photo::findOrFail($id);
-        dd($single); 
+        $photo = Photo::findOrFail($id);
+        return view("photos.show", compact('photo'));
     }
 
     /**

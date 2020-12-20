@@ -48,8 +48,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $single = User::findOrFail($id);
-        dd($single);
+        $user = User::findOrFail($id);
+        return view('users.show',compact('user'));
     }
 
     /**
