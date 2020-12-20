@@ -11,7 +11,7 @@
         <li>Server Path: {{ $photo->server_path }} </li>
         <li>Vertical resolution: {{ $photo->v_resolution }} </li>
         <li>Horizontal resolution: {{ $photo->h_resolution }} </li>
-        <li>Owner: {{ $user->first_name}} {{ $user->first_name}}</li>
+        <li>Owner: {{ $user->first_name}} {{ $user->last_name}}</li>
         <li>Tags:
         @foreach ($photo->tags as $tag) 
                     {{ $tag->name }} 

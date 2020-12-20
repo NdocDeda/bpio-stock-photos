@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Photo;
+use App\User;
 
 class PhotoController extends Controller
 {
@@ -66,7 +67,15 @@ class PhotoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $photo = Photo::findOrFail($id);
+
+        //$users = User::pluck('email', 'id');
+        $users = User::all()->pluck('full_name', 'id');
+        
+
+        return view('photos.edit',
+            compact('photo','users')
+        );
     }
 
     /**
@@ -78,7 +87,18 @@ class PhotoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'v_resolution' => 'required|integer',
+            'h_resolution' => 'required|integer',
+            'user_id' => 'required'
+        ]);
+
+        $photo = Photo::findOrFail($id);
+        $photo->fill($validated);
+        $photo->save();
+
+        return redirect()->route('photos.show', ['photo' => $photo->id]);
     }
 
     /**
