@@ -24,5 +24,6 @@ Route::resource('tags',TagController::class);
 Route::resource('photos',PhotoController::class);
 Route::resource('roles',RoleController::class);
 Route::resource('payouts',PayoutController::class);
+
 Route::resource('users',UserController::class); // Za administraciju usera
 

@@ -5,7 +5,9 @@
 
         <h2>Photos</h2>
 
-        <table class="table table-striped">
+        <a href="{{ route('photos.create') }}" class="btn btn-primary mt-5">Add</a>
+
+        <table class="table table-striped mt-3">
         <thead>   
             <tr>
                 <th scope="col">Id</th>
@@ -14,6 +16,7 @@
                 <th scope="col">Vertical resolution</th>
                 <th scope="col">Horizontal resolution</th>
                 <th scope="col">Owners Id</th>
+                <th scope="col">Actions</th> 
             </tr>
         </thead>
         <tbody>
@@ -25,6 +28,11 @@
                 <td> {{ $photo->v_resolution }} </td>
                 <td> {{ $photo->h_resolution }} </td>
                 <td> {{ $photo->iser_id }} </td>
+                <td> 
+                    <a class="btn btn-outline-primary" href="{{ route('photos.show',['photo' => $photo->id] ) }}"> Details </a>
+                    <a class="btn btn-outline-primary" href="{{ route('photos.edit',['photo' => $photo->id] ) }}"> Edit </a>
+                    
+                </td>
             </tr>
         @endforeach
         </tbody>
