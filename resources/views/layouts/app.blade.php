@@ -21,16 +21,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="/photos">Photos</a>
+            <a class="nav-link" href="{{ route('photos.index') }}">Photos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/tags">Tags</a>
+            <a class="nav-link" href="{{ route('tags.index') }}">Tags</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/users">Users</a>
+            <a class="nav-link" href="{{ route('users.index') }}">Users</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/payouts">Payouts</a>
+            <a class="nav-link" href="{{ route('payouts.index') }}">Payouts</a>
         </li>
         
         </ul>
