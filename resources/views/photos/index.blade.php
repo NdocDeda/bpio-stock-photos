@@ -38,6 +38,7 @@
                     <a class="btn btn-outline-primary" href="{{ route('photos.show',['photo' => $photo->id] ) }}"> Details </a>
                     <a class="btn btn-outline-primary" href="{{ route('photos.edit',['photo' => $photo->id] ) }}"> Edit </a>
                     
+                    
                 </td>
             </tr>
         @endforeach

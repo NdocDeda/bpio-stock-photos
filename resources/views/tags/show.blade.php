@@ -14,6 +14,13 @@
 
     <a href="{{ url()->previous() }}" class="btn btn-outline-primary"> Back </a>
 
+    <form class="form-inline" action="{{ route('tags.destroy', ['tag' => $tag->id]) }}" method="POST">
+        <!-- CSRF token -->
+        @csrf
+        @method('DELETE')
+        <button type="submit" onclick="confirm('Are you sure?')" class="btn btn-danger mt-1">Delete</button>
+    </form>
+
     
 
 @endsection

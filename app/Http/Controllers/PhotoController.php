@@ -29,7 +29,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all()->pluck('full_name', 'id');
+        return view ("photos.create",compact('users'));
     }
 
     /**
@@ -40,7 +41,19 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'v_resolution' => 'required|integer',
+            'h_resolution' => 'required|integer',
+            'user_id' => 'required'
+        ]);
+
+        $photo = Photo::create($validated);
+        $user =  $photo->user;
+
+        return view('photos.show', compact('photo','user'));
+
+
     }
 
     /**
@@ -109,6 +122,9 @@ class PhotoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Photo::destroy($id);
+
+        /* nakon brisanja, napravi redirect na index stranicu */
+        return redirect()->route('photos.index');
     }
 }

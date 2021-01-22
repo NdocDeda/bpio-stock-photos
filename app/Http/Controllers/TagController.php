@@ -100,6 +100,10 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tag::destroy($id);
+
+        /* nakon brisanja, napravi redirect na index stranicu */
+        return redirect()->route('tags.index');
+    
     }
 }
