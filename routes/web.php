@@ -20,10 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::middleware(['auth'])->group(function () {
 Route::resource('tags',TagController::class);
 Route::resource('photos',PhotoController::class);
 Route::resource('roles',RoleController::class);
 Route::resource('payouts',PayoutController::class);
-
 Route::resource('users',UserController::class); // Za administraciju usera
+//});
 
+
+
+/* ovdje su rute za login, registraciju, change password, itd. */
+require __DIR__.'/auth.php';
