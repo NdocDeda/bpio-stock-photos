@@ -9,7 +9,15 @@
                 <!-- user name -->
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input value="{{ @old('email') }}" name="name" type="text" class="form-control" id="name">
+                    <input value="{{ @old('email') }}" name="first_name" type="text" class="form-control" id="name">
+                    @if ($errors->has('name'))
+                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input value="{{ @old('email') }}" name="last_name" type="text" class="form-control" id="name">
                     @if ($errors->has('name'))
                         <span class="text-danger">{{ $errors->first('name') }}</span>
                     @endif

@@ -12,6 +12,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function index()
     {
         //
@@ -38,7 +41,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:users|max:255',
+            'native_name' => 'required|unique:users|max:255',
+        ]);
+        $user = User::create($validated);
+        return view('users.show', compact('user'));
     }
 
     /**
